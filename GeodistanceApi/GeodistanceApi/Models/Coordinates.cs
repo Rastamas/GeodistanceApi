@@ -1,4 +1,4 @@
-namespace GeodistanceApi
+namespace GeodistanceApi.Models
 {
     public class Coordinates
     {

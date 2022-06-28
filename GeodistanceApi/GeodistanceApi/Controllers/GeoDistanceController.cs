@@ -1,3 +1,5 @@
+using GeodistanceApi.Models;
+using GeodistanceApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GeodistanceApi.Controllers
@@ -7,16 +9,18 @@ namespace GeodistanceApi.Controllers
     public class GeoDistanceController : ControllerBase
     {
         private readonly ILogger<GeoDistanceController> _logger;
+        private readonly IGeoDistanceSerice _geoDistanceService;
 
-        public GeoDistanceController(ILogger<GeoDistanceController> logger)
+        public GeoDistanceController(ILogger<GeoDistanceController> logger, IGeoDistanceSerice geoDistanceService)
         {
             _logger = logger;
+            _geoDistanceService = geoDistanceService;
         }
 
-        [HttpGet(Name = "GetDistance")]
-        public double Get(Coordinates coordinates)
+        [HttpPost(Name = "GetDistance")]
+        public double Get(GeoDistanceRequest input)
         {
-            return default;
+            return _geoDistanceService.GetDistance(input.From, input.To);
         }
     }
 }
