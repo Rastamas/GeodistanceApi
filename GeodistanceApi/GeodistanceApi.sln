@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeodistanceApi", "GeodistanceApi\GeodistanceApi.csproj", "{ECAFAEAB-6FE4-41C1-9359-31F723957409}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECAFAEAB-6FE4-41C1-9359-31F723957409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECAFAEAB-6FE4-41C1-9359-31F723957409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECAFAEAB-6FE4-41C1-9359-31F723957409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECAFAEAB-6FE4-41C1-9359-31F723957409}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20E8F1E4-28A2-4823-B893-450B86F82ED5}
+	EndGlobalSection
+EndGlobal
