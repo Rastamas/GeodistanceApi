@@ -1,6 +1,7 @@
 using FluentAssertions;
 using GeodistanceApi.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -11,6 +12,7 @@ namespace IntegrationTests
 {
     public class GeoDistanceApiTests : IClassFixture<WebApplicationFactory<Program>>
     {
+        private const string GeoDistanceEndpoint = "/GeoDistance";
         private readonly WebApplicationFactory<Program> _factory;
 
         public GeoDistanceApiTests(WebApplicationFactory<Program> factory)
@@ -30,12 +32,31 @@ namespace IntegrationTests
 
             var client = _factory.CreateClient();
 
-            var response = await client.PostAsync("/GeoDistance", new StringContent(requestBody, Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync(GeoDistanceEndpoint, new StringContent(requestBody, Encoding.UTF8, "application/json"));
 
             response.EnsureSuccessStatusCode();
             var responseValue = double.Parse(await response.Content.ReadAsStringAsync());
 
             responseValue.Should().BeApproximately(expectedValue, precision: 2);
+        }
+
+        [Fact]
+        public async Task GetDistanceNegative()
+        {
+            var requestBody = JsonSerializer.Serialize(new GeoDistanceRequest
+            {
+                From = new Coordinates(0, 0),
+                To = new Coordinates(0, 1000)
+            });
+
+            var client = _factory.CreateClient();
+
+            var response = await client.PostAsync(GeoDistanceEndpoint, new StringContent(requestBody, Encoding.UTF8, "application/json"));
+
+            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            var errorMessage = await response.Content.ReadAsStringAsync();
+
+            errorMessage.Should().ContainAll("To", "Longitude").And.NotContain("From");
         }
     }
 }
