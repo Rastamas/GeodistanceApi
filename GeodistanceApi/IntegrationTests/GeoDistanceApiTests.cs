@@ -1,4 +1,5 @@
 using FluentAssertions;
+using GeodistanceApi;
 using GeodistanceApi.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net;
