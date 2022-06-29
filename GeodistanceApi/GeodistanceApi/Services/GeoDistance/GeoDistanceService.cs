@@ -5,18 +5,18 @@ namespace GeodistanceApi.Services
 {
     public class GeoDistanceService : IGeoDistanceSerice
     {
+        private const int EarthRadiusInKm = 6371;
+
         public double GetDistance(Coordinates from, Coordinates to)
         {
-            var rlat1 = from.Latitude.ToRadian();
-            var rlat2 = to.Latitude.ToRadian();
-            var rtheta = (from.Longitude - to.Longitude).ToRadian();
+            var fromLatitideInR = from.Latitude.ToRadian();
+            var toLatitudeInR = to.Latitude.ToRadian();
+            var longitudeAngle = (from.Longitude - to.Longitude).ToRadian();
 
-            var distance = Math.Sin(rlat1) * Math.Sin(rlat2) + Math.Cos(rlat1) * Math.Cos(rlat2) * Math.Cos(rtheta);
+            var insideAngle = Math.Acos(Math.Sin(fromLatitideInR) * Math.Sin(toLatitudeInR) + 
+                Math.Cos(fromLatitideInR) * Math.Cos(toLatitudeInR) * Math.Cos(longitudeAngle));
 
-            distance = Math.Acos(distance);
-            distance = distance.FromRadian() * 60 * 1.1515 * 1.609344;
-
-            return distance;
+            return insideAngle * EarthRadiusInKm;
         }
     }
 }

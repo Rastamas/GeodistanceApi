@@ -23,7 +23,7 @@ namespace UnitTests
             new List<object[]>
             {
                 new object[] { new Coordinates(46.8964, 19.6897), new Coordinates(47.4979, 19.0402), 82.95 },
-                new object[] { new Coordinates(53.3498, -6.2603), new Coordinates(47.4979, 19.0402), 1894.59 }
+                new object[] { new Coordinates(53.3498, -6.2603), new Coordinates(47.4979, 19.0402), 1894.68 }
             };
     }
 }
