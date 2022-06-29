@@ -1,8 +1,7 @@
+using FluentAssertions;
 using GeodistanceApi.Models;
 using Microsoft.AspNetCore.Mvc.Testing;
-using System;
 using System.Net.Http;
-using System.Net.Mime;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -36,7 +35,7 @@ namespace IntegrationTests
             response.EnsureSuccessStatusCode();
             var responseValue = double.Parse(await response.Content.ReadAsStringAsync());
 
-            Assert.Equal(expectedValue, Math.Round(responseValue, 2));
+            responseValue.Should().BeApproximately(expectedValue, precision: 2);
         }
     }
 }
