@@ -1,6 +1,6 @@
+using FluentAssertions;
 using GeodistanceApi.Models;
 using GeodistanceApi.Services;
-using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -16,7 +16,21 @@ namespace UnitTests
 
             var distance = service.GetDistance(from, to);
 
-            Assert.Equal(expectedDistance, Math.Round(distance, 2));
+            distance.Should().BeApproximately(expectedDistance, precision: 2);
+        }
+
+        [Fact]
+        public void GetDistanceIsTheSameBackwards()
+        {
+            var coordinatesFrom = new Coordinates(25, -25);
+            var coordinatesTo = new Coordinates(-50, 50);
+
+            var service = new GeoDistanceService();
+
+            var distanceOneWay = service.GetDistance(coordinatesFrom, coordinatesTo);
+            var distanceBackwards = service.GetDistance(coordinatesTo, coordinatesFrom);
+
+            distanceOneWay.Should().Be(distanceBackwards);
         }
 
         public static IEnumerable<object[]> TestData =>

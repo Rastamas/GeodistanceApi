@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeodistanceApi", "GeodistanceApi\GeodistanceApi.csproj", "{ECAFAEAB-6FE4-41C1-9359-31F723957409}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeodistanceApi", "GeodistanceApi\GeodistanceApi.csproj", "{ECAFAEAB-6FE4-41C1-9359-31F723957409}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A9FEDF1D-A1EF-4BB4-90CD-DD68C056108E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A9FEDF1D-A1EF-4BB4-90CD-DD68C056108E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{5E0F4FDF-9D60-4D8D-A22A-5AE9B72B056A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A9FEDF1D-A1EF-4BB4-90CD-DD68C056108E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9FEDF1D-A1EF-4BB4-90CD-DD68C056108E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9FEDF1D-A1EF-4BB4-90CD-DD68C056108E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E0F4FDF-9D60-4D8D-A22A-5AE9B72B056A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E0F4FDF-9D60-4D8D-A22A-5AE9B72B056A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E0F4FDF-9D60-4D8D-A22A-5AE9B72B056A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E0F4FDF-9D60-4D8D-A22A-5AE9B72B056A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
