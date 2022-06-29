@@ -19,6 +19,20 @@ namespace UnitTests
             Assert.Equal(expectedDistance, Math.Round(distance, 2));
         }
 
+        [Fact]
+        public void GetDistanceIsTheSameBackwards()
+        {
+            var coordinatesFrom = new Coordinates(25, -25);
+            var coordinatesTo = new Coordinates(-50, 50);
+
+            var service = new GeoDistanceService();
+
+            var distanceOneWay = service.GetDistance(coordinatesFrom, coordinatesTo);
+            var distanceBackwards = service.GetDistance(coordinatesTo, coordinatesFrom);
+
+            Assert.Equal(distanceOneWay, distanceBackwards);
+        }
+
         public static IEnumerable<object[]> TestData =>
             new List<object[]>
             {
